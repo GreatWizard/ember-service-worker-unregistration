@@ -1,26 +1,49 @@
-# ember-service-worker-unregistration
+# Ember Service Worker Unregistration
 
-This README outlines the details of collaborating on this Ember addon.
+_An Ember plugin that unregister service workers when ember-service-worker is disabled._
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-service-worker-unregistration`
-* `npm install`
+```
+ember install ember-service-worker-unregistration
+```
 
-## Running
+## Configuration
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+This plugin inject unregistration loop code at the bottom of your `index.html` file.
 
-## Running Tests
+To unregister all your service workers you just need to disable ember-service-worker.
+The configuration is done in the `ember-cli-build.js` file:
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+```js
+var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-## Building
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    'ember-service-worker': {
+      // Disable the Service Worker
+      enabled: false
+    }
+  });
 
-* `ember build`
+  return app.toTree();
+};
+```
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+## Authors
+
+* [Guillaume Gérard](http://twitter.com/ggerard88)
+
+## Versioning
+
+This library follows [Semantic Versioning](http://semver.org)
+
+## Want to help?
+
+Please do! We are always looking to improve this library. Please see our
+[Contribution Guidelines](https://github.com/greatwizard/ember-service-worker-unregistration/blob/master/CONTRIBUTING.md)
+on how to properly submit issues and pull requests.
+
+## Legal
+
+[Licensed under the MIT license](http://www.opensource.org/licenses/mit-license.php)

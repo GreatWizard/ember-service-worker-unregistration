@@ -15,8 +15,8 @@ module.exports = {
     this._super.included && this._super.included.apply(this, arguments);
     this.app = app;
     this.app.options = this.app.options || {};
-    let options = (this.app.options['ember-service-worker'] =
-      this.app.options['ember-service-worker'] || {});
+    let options = (this.app.options['ember-service-worker']
+      = this.app.options['ember-service-worker'] || {});
 
     if (process.env.SW_DISABLED) {
       options.enabled = false;
