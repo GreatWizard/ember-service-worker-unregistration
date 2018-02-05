@@ -1,5 +1,7 @@
 # Ember Service Worker Unregistration
 
+[![Build Status](https://travis-ci.org/GreatWizard/ember-service-worker-unregistration.svg?branch=master)](https://travis-ci.org/GreatWizard/ember-service-worker-unregistration) [![Ember Observer Score](https://emberobserver.com/badges/ember-service-worker-unregistration.svg)](https://emberobserver.com/addons/ember-service-worker-unregistration)
+
 _An Ember plugin that unregister service workers when ember-service-worker is disabled._
 
 ## Installation
