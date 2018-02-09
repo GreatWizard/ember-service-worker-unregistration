@@ -10,11 +10,13 @@ sudo: false
 cache:
   directories:
     - node_modules
+    - tests/fixtures/app-simple/node_modules
 
 before_install:
   - npm config set spin false
 
 install:
+  - cd tests/fixtures/app-simple && npm install && cd -
   - npm install
 
 script:

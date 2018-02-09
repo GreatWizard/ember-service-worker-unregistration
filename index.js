@@ -18,6 +18,10 @@ module.exports = {
     let options = (this.app.options['ember-service-worker']
       = this.app.options['ember-service-worker'] || {});
 
+    if(options.enabled === undefined) {
+      options.enabled = true;
+    }
+
     if (process.env.SW_DISABLED) {
       options.enabled = false;
     }
