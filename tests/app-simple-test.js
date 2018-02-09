@@ -3,7 +3,10 @@ var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf').sync;
 var spawnSync = require('child_process').spawnSync;
-var emberCLIPath = path.resolve(__dirname, './fixtures/app-simple/node_modules/ember-cli/bin/ember');
+var emberCLIPath = path.resolve(
+  __dirname,
+  './fixtures/app-simple/node_modules/ember-cli/bin/ember'
+);
 
 describe('Acceptance Tests', function() {
   this.timeout(120000);
@@ -50,9 +53,21 @@ function exists(path) {
 }
 
 function contains(path, content) {
-  assert.ok(fs.readFileSync(path).toString().indexOf(content) > -1, path + ' contains ' + content);
+  assert.ok(
+    fs
+      .readFileSync(path)
+      .toString()
+      .indexOf(content) > -1,
+    path + ' contains ' + content
+  );
 }
 
 function notContains(path, content) {
-  assert.ok(fs.readFileSync(path).toString().indexOf(content) === -1, path + ' contains ' + content);
+  assert.ok(
+    fs
+      .readFileSync(path)
+      .toString()
+      .indexOf(content) === -1,
+    path + ' contains ' + content
+  );
 }

@@ -11,16 +11,12 @@ cache:
   directories:
     - node_modules
     - tests/fixtures/app-simple/node_modules
-    - tests/fixtures/app-sw-enabled/node_modules
-    - tests/fixtures/app-sw-disabled/node_modules
 
 before_install:
   - npm config set spin false
 
 install:
   - cd tests/fixtures/app-simple && npm install && cd -
-  - cd tests/fixtures/app-sw-enabled && npm install && cd -
-  - cd tests/fixtures/app-sw-disabled && npm install && cd -
   - npm install
 
 script:
