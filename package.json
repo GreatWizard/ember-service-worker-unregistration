@@ -1,6 +1,6 @@
 {
   "name": "ember-service-worker-unregistration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Ember plugin that unregister service workers when ember-service-worker is disabled.",
   "keywords": [
     "ember-addon"
