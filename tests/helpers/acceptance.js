@@ -26,6 +26,10 @@ function exists(path) {
   assert.ok(fs.existsSync(path), `${path} exists`);
 }
 
+function notExists(path) {
+  assert.notOk(fs.existsSync(path), `${path} don't exists`);
+}
+
 function contains(path, content) {
   assert.ok(
     fs
@@ -46,4 +50,11 @@ function notContains(path, content) {
   );
 }
 
-module.exports = { runEmberCommand, cleanup, exists, contains, notContains };
+module.exports = {
+  runEmberCommand,
+  cleanup,
+  exists,
+  notExists,
+  contains,
+  notContains
+};

@@ -24,7 +24,14 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     'ember-service-worker': {
       // Disable the Service Worker
-      enabled: false
+      enabled: false,
+      // There are various ways to inject the service worker registration script.
+      // By default, the unregistration file is loaded using a simple script tag in the bottom of the body tag
+      // async: the unregistration file is loaded using a async script tag in the bottom of the head tag
+      // inline: write the contents of the registration script into the index.html file
+      registrationStrategy: 'inline'
+      // Force to create the unregistration file
+      unregistrationEnabled: true
     }
   });
 

@@ -5,14 +5,17 @@ const path = require('path');
 const Helper = require('./helpers/acceptance.js');
 const emberCLIPath = path.resolve(
   __dirname,
-  './fixtures/app-sw-enabled/node_modules/ember-cli/bin/ember'
+  './fixtures/app-sw-enabled-async/node_modules/ember-cli/bin/ember'
 );
 
 describe('Acceptance Tests', function() {
   this.timeout(120000);
 
-  context('App with service worker option enabled', function() {
-    let fixturePath = path.resolve(__dirname, './fixtures/app-sw-enabled');
+  context('App with service worker options "enabled async"', function() {
+    let fixturePath = path.resolve(
+      __dirname,
+      './fixtures/app-sw-enabled-async'
+    );
 
     function dist(file) {
       return path.join(fixturePath, 'dist', file);
@@ -26,9 +29,13 @@ describe('Acceptance Tests', function() {
       Helper.cleanup(fixturePath);
     });
 
-    it('produces a index.html that does not contain the unregistration script when sw option true', function() {
+    it('produces a index.html that does not contain the unregistration async script when sw option true', function() {
       Helper.exists(dist('index.html'));
-      Helper.notContains(dist('index.html'), `registration.unregister();`);
+      Helper.notExists(dist('sw-unregistration.js'));
+      Helper.notContains(
+        dist('index.html'),
+        `<script async src="/sw-unregistration.js"></script>`
+      );
     });
   });
 });
