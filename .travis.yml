@@ -16,8 +16,8 @@ before_install:
   - npm config set spin false
 
 install:
-  - cd tests/fixtures/app-simple && npm install && cd -
   - npm install
+  - cd tests/fixtures/app-simple && npm install && cd -
 
 script:
   - npm test
